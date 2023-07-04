@@ -58,34 +58,31 @@ VALUES
     ('s20', NULL, 'Blanca SuÃ¡rez| IvÃ¡n Marcos| Ã“scar Casas| AdriÃ¡n Lastra| Francesc Garrido| Stefan Weinert| Julia MÃ¶ller| Alicia Chojnowski')
     ;
 
-SELECT count(*) FROM "netflix_people";
 
-SELECT * FROM "netflix_people" LIMIT 5;
+--The following queries were made to answer to specifict questions--
 
-SELECT * FROM "netflix_titles_info" LIMIT 5;
-
-SELECT people.show_id, people.director, people.cast, titles.type, titles.title, titles.listed_in
-FROM "netflix_people" people
-LEFT JOIN "netflix_titles_info" titles
-ON people.show_id = titles.show_id;
-
+-- How many movie titles are there in the database? (movies only, not tv shows)-- 
 SELECT count(title)
 FROM "netflix_titles_info"
 WHERE type = 'Movie';
 
+--When was the most recent batch of tv shows and/or movies added to the database?--
 SELECT MAX(DATE(date_added))
 FROM "netflix_titles_info";
 
+--List all the movies and tv shows in alphabetical order.-- 
 SELECT title
 FROM "netflix_titles_info"
 ORDER BY title;
 
+--Who was the Director for the movie The Starling?--
 SELECT director
 FROM "netflix_people" people
 LEFT JOIN "netflix_titles_info" titles
 ON people.show_id = titles.show_id
 WHERE titles.title = 'The Starling';
 
+--What is the oldest movie in the database and what year was it made?--
 SELECT *
 FROM "netflix_titles_info"
 WHERE type = 'Movie'
