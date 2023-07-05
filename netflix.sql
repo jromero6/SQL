@@ -83,8 +83,10 @@ ON people.show_id = titles.show_id
 WHERE titles.title = 'The Starling';
 
 --What is the oldest movie in the database and what year was it made?--
-SELECT *
+SELECT title, release_year 
 FROM "netflix_titles_info"
 WHERE type = 'Movie'
-ORDER BY release_year
-LIMIT 1;
+AND release_year <= 
+(SELECT MIN(release_year) 
+FROM "netflix_titles_info"
+WHERE type = 'Movie');
