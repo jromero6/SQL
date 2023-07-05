@@ -33,7 +33,7 @@ FROM BIT_DB.JanSales
 GROUP BY product;
 
 --Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?--
-SELECT SUM(Quantity), product, SUM(Quantity) *price AS revenue
+SELECT SUM(Quantity), product, SUM(Quantity)*price AS revenue
 FROM BIT_DB.FebSales
 WHERE location = '548 Lincoln St, Seattle, WA 98101';
 
