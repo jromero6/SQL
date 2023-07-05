@@ -18,8 +18,8 @@ SELECT DISTINCT customers.acctnum
 FROM BIT_DB.FebSales
 JOIN BIT_DB.customers
 ON Febsales.orderID = customers.order_id
-WHERE length(orderid) = 6 
-AND orderid <> 'Order ID';
+WHERE length(orderID) = 6 
+AND orderID <> 'Order ID';
 
 --Which product was the cheapest one sold in January, and what was the price?--
 SELECT DISTINCT product, MIN(price) AS price
@@ -41,10 +41,10 @@ WHERE location = '548 Lincoln St, Seattle, WA 98101';
 SELECT COUNT(DISTINCT customers.acctnum), AVG(quantity*price) AS avg_spend
 FROM BIT_DB.FebSales Feb
 LEFT JOIN BIT_DB.customers 
-ON Feb.orderid = customers.order_id
+ON Feb.orderID = customers.order_id
 WHERE Feb.Quantity > 2
 AND LENGTH(orderid) = 6
-AND orderid <> 'Order ID';
+AND orderID <> 'Order ID';
 
 --List all the products sold in Los Angeles in February, and include how many of each were sold.--
 SELECT DISTINCT Product, SUM(quantity)
