@@ -43,7 +43,7 @@ FROM BIT_DB.FebSales Feb
 LEFT JOIN BIT_DB.customers 
 ON Feb.orderID = customers.order_id
 WHERE Feb.Quantity > 2
-AND LENGTH(orderid) = 6
+AND LENGTH(orderID) = 6
 AND orderID <> 'Order ID';
 
 --List all the products sold in Los Angeles in February, and include how many of each were sold.--
