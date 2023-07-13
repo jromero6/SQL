@@ -24,3 +24,9 @@ duration_ms integer NOT NULL,
 time_signature integer NOT NULL 
 )
 
+-- Which song is the longest in duration? --
+-- Which song has the best tempo? -- 
+-- Which song is the loudest and has the most energy? --
+-- Which track has the most popularity? --
+-- Which acoustic song plays the most instruments? --
+-- What songs have the duration of less than a minute? --
