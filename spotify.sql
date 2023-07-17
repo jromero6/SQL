@@ -25,8 +25,28 @@ time_signature integer NOT NULL
 )
 
 -- Which song is the longest in duration? --
--- Which song has the best tempo? -- 
+SELECT track_name, artist_name, MAX(duration_ms)
+FROM BIT_DB.Spotifydata;
+
+-- Which song has the fastesta and slowest tempo? -- 
+SELECT track_name, artist_name, MAX(tempo)
+FROM BIT_DB.Spotifydata;
+
+SELECT track_name, artist_name, MIN(tempo)
+FROM BIT_DB.Spotifydata;
+
 -- Which song is the loudest and has the most energy? --
+SELECT track_name, artist_name, loudness, energy
+FROM BIT_DB.Spotifydata
+ORDER BY loudness DESC, energy DESC
+LIMIT 2;
+
 -- Which track has the most popularity? --
--- Which acoustic song plays the most instruments? --
--- What songs have the duration of less than a minute? --
+SELECT track_name, artist_name, popularity 
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC;
+
+-- What songs have the duration of less than 3 minutes? --
+SELECT track_name, artist_name
+FROM BIT_DB.Spotifydata
+WHERE duration_ms < 180000;
